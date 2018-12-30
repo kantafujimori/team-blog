@@ -2,12 +2,16 @@
   .header__title
     TEAM BLOG
   %ul.header__menue
-    %li.header__list
-      = link_to "新規登録", "", class: "link__menue"
-    %li.header__list
-      = link_to "ログイン", "", class: "link__menue"
-    %li.header__list
-      = link_to "投稿", "", class: "link__menue"
+    - if user_signed_in?
+      %li.header__list
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link__menue"
+      %li.header__list
+        = link_to "投稿", "", class: "link__menue"
+    - else
+      %li.header__list
+        = link_to "新規登録", new_user_registration_path, class: "link__menue"
+      %li.header__list
+        = link_to "ログイン", new_user_session_path, class: "link__menue"
 .contents
   .content
     .name
@@ -15,12 +19,13 @@
     %p.text
       こんばんわaaaaaaaaaaaaaaaaaaaaaaa
     %ul.lists
-      %li.lists__title
-        = link_to "コメント", root_path, class: "link"
-      %li.lists__title
-        = link_to "編集", root_path, class: "link"
-      %li.lists__title
-        = link_to "消去", root_path, class: "link"
+      - if user_signed_in?
+        %li.lists__title
+          = link_to "コメント", root_path, class: "link"
+        %li.lists__title
+          = link_to "編集", root_path, class: "link"
+        %li.lists__title
+          = link_to "消去", root_path, class: "link"
   .content
     %p.text
       こんばんわ
