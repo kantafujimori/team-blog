@@ -1,0 +1,33 @@
+%header.header
+  .header__title
+    TEAM BLOG
+  %ul.header__menue
+    %li.header__list
+      = link_to "新規登録", "", class: "link__menue"
+    %li.header__list
+      = link_to "ログイン", "", class: "link__menue"
+    %li.header__list
+      = link_to "投稿", "", class: "link__menue"
+.contents
+  .content
+    .name
+      = link_to "kanta", root_path, class: "link__name"
+    %p.text
+      こんばんわaaaaaaaaaaaaaaaaaaaaaaa
+    %ul.lists
+      %li.lists__title
+        = link_to "コメント", root_path, class: "link"
+      %li.lists__title
+        = link_to "編集", root_path, class: "link"
+      %li.lists__title
+        = link_to "消去", root_path, class: "link"
+  .content
+    %p.text
+      こんばんわ
+    %ul.lists
+      %li.lists__title
+        コメント
+      %li.lists__title
+        編集
+      %li.lists__title
+        消去
