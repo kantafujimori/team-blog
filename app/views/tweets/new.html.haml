@@ -1,0 +1,7 @@
+.form
+  = form_for @tweet do |f|
+    = f.text_area :text, placeholder: "なにをしている？", class: "form__field"
+    = f.label :image, class: "form__image" do
+      = fa_icon 'picture-o', class: 'icon'
+      = f.file_field :image, class: 'hidden'
+    = f.submit "投稿", class: "form__send"

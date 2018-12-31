@@ -1,38 +1,17 @@
-%header.header
-  .header__title
-    TEAM BLOG
-  %ul.header__menue
-    - if user_signed_in?
-      %li.header__list
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link__menue"
-      %li.header__list
-        = link_to "投稿", "", class: "link__menue"
-    - else
-      %li.header__list
-        = link_to "新規登録", new_user_registration_path, class: "link__menue"
-      %li.header__list
-        = link_to "ログイン", new_user_session_path, class: "link__menue"
 .contents
-  .content
-    .name
-      = link_to "kanta", root_path, class: "link__name"
-    %p.text
-      こんばんわaaaaaaaaaaaaaaaaaaaaaaa
-    %ul.lists
-      - if user_signed_in?
-        %li.lists__title
-          = link_to "コメント", root_path, class: "link"
-        %li.lists__title
-          = link_to "編集", root_path, class: "link"
-        %li.lists__title
-          = link_to "消去", root_path, class: "link"
-  .content
-    %p.text
-      こんばんわ
-    %ul.lists
-      %li.lists__title
-        コメント
-      %li.lists__title
-        編集
-      %li.lists__title
-        消去
+  - @tweets.each do |tweet|
+    .content
+      .name
+        = link_to "#{tweet.user.name}", root_path, class: "link__name"
+      %p.text
+        = tweet.text
+        - if tweet.image.present?
+          = image_tag "#{tweet.image}"
+      %ul.lists
+        - if user_signed_in?
+          %li.lists__title
+            = link_to "コメント", "", class: "link"
+          %li.lists__title
+            = link_to "編集", "/tweets/#{tweet.id}/edit", class: "link"
+          %li.lists__title
+            = link_to "消去", "/tweets/#{tweet.id}", method: :delete, class: "link"
