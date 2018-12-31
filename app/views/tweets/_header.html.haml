@@ -4,6 +4,8 @@
   %ul.header__menue
     - if user_signed_in?
       %li.header__list
+        = link_to "マイページ", "/users/#{current_user.id}", class: "link__menue"
+      %li.header__list
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link__menue"
       %li.header__list
         = link_to "投稿", new_tweet_path, class: "link__menue"
