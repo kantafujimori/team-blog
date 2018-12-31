@@ -1,0 +1,46 @@
+
+#new_tweet{
+  position: relative;
+  margin: 0 auto;
+  width: 500px;
+}
+.edit_tweet {
+  position: relative;
+  margin: 0 auto;
+  width: 500px;
+}
+.form__field {
+  height: 500px;
+  width: 500px;
+  border: solid 3px #CC33FF;
+  border-radius: 30px;
+  padding: 20px 20px;
+  margin-top: 40px;
+  outline: none;
+  font-size: 20px;
+}
+.form__send{
+  padding: 15px 30px;
+  border: solid 3px #CC33FF;
+  border-radius: 10px;
+  background-color: #CC33FF;
+  font-weight: bold;
+  font-size: 25px;
+  display: block;
+  margin: 0 auto;
+  color: black;
+}
+
+.form__image {
+  position: absolute;
+  bottom: 20px;
+  font-size: 30px;
+  right: 30px;
+  bottom: 14%;
+
+}
+.icon{
+
+
+}
+
