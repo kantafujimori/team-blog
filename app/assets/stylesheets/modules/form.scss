@@ -1,10 +1,4 @@
-
 #new_tweet{
-  position: relative;
-  margin: 0 auto;
-  width: 500px;
-}
-.edit_tweet {
   position: relative;
   margin: 0 auto;
   width: 500px;
@@ -30,17 +24,52 @@
   margin: 0 auto;
   color: black;
 }
-
 .form__image {
   position: absolute;
   bottom: 20px;
   font-size: 30px;
   right: 30px;
   bottom: 14%;
-
 }
-.icon{
 
 
+.edit_tweet {
+  position: relative;
+  margin: 0 auto;
+  width: 500px;
+}
+
+
+#new_comment{
+  position: relative;
+  margin: 0 auto;
+  width: 900px;
+}
+.comment__field {
+  height: 150px;
+  width: 900px;
+  border: solid 3px #C0C0C0;
+  border-radius: 30px;
+  padding: 20px 20px;
+  margin-top: 40px;
+  outline: none;
+  font-size: 17px;
+}
+.comment__send{
+  padding: 15px 30px;
+  border: solid 3px #CC33FF;
+  border-radius: 10px;
+  background-color: #CC33FF;
+  font-weight: bold;
+  font-size: 20px;
+  display: block;
+  margin: 0 auto;
+  color: black;
+}
+.comment__image {
+  position: absolute;
+  font-size: 30px;
+  right: 30px;
+  bottom: 28%;
 }
 

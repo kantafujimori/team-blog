@@ -10,7 +10,7 @@
       %ul.lists
         - if user_signed_in?
           %li.lists__title
-            = link_to "コメント", "", class: "link"
+            = link_to "コメント", "/tweets/#{tweet.id}", class: "link"
           %li.lists__title
             = link_to "編集", "/tweets/#{tweet.id}/edit", class: "link"
           %li.lists__title
