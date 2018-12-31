@@ -1,5 +1,5 @@
 .user__name
-  = current_user.name
+  = @user.name
 - if @tweets
   - @tweets.each do |tweet|
     .user
@@ -7,9 +7,13 @@
         = tweet.text
         = image_tag "#{tweet.image}"
       %ul.lists
-        %li.lists__title
-          = link_to "コメント", "/tweets/#{tweet.id}", class: "link"
-        %li.lists__title
-          = link_to "編集", "/tweets/#{tweet.id}/edit", class: "link"
-        %li.lists__title
-          = link_to "消去", "/tweets/#{tweet.id}", method: :delete, class: "link"
+        - if tweet.user_id == current_user.id
+          %li.lists__title
+            = link_to "コメント", "/tweets/#{tweet.id}", class: "link"
+          %li.lists__title
+            = link_to "編集", "/tweets/#{tweet.id}/edit", class: "link"
+          %li.lists__title
+            = link_to "消去", "/tweets/#{tweet.id}", method: :delete, class: "link"
+        - else
+          %li.lists__title
+            = link_to "コメント", "/tweets/#{tweet.id}", class: "link"
