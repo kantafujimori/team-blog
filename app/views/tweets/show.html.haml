@@ -1,7 +1,7 @@
 .contents
   .content
     .name
-      = link_to "#{@tweet.user.name}", root_path, class: "link__name"
+      = link_to "#{@tweet.user.name}", "/users/#{@tweet.user_id}", class: "link__name"
     %p.text
       = @tweet.text
       - if @tweet.image.present?
@@ -13,7 +13,7 @@
       - if @comments
         - @comments.each do |comment|
           .comment__name
-            = comment.user.name
+            = link_to "#{comment.user.name}", "/users/#{comment.user.id}", class: "link__name"
           .comment__text
             = comment.text
           - if comment.image.present?
