@@ -4,4 +4,11 @@ class UsersController < ApplicationController
     @tweets = @tweets.page(params[:page]).per(2)
     @user = User.find(params[:id])
   end
+
+  def index
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").limit(10)
+    respond_to do |format|
+      format.json
+    end
+  end
 end
