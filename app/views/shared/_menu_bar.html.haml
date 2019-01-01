@@ -1,11 +1,12 @@
 %ul.lists
   - if user_signed_in?
-    %li.lists__title
-      = link_to "コメント", "/tweets/#{tweet.id}", class: "link"
-    %li.lists__title
-      = link_to "編集", "/tweets/#{tweet.id}/edit", class: "link"
-    %li.lists__title.delete
-      = link_to "削除", "/tweets/#{tweet.id}", method: :delete, class: "link"
-  - else
-    %li.lists__title
-      = link_to "コメント", "/tweets/#{tweet.id}", class: "link"
+    - if current_user.id == tweet.user_id
+      %li.lists__title
+        = link_to "コメント", "/tweets/#{tweet.id}", class: "link"
+      %li.lists__title
+        = link_to "編集", "/tweets/#{tweet.id}/edit", class: "link"
+      %li.lists__title.delete
+        = link_to "削除", "/tweets/#{tweet.id}", method: :delete, class: "link"
+    - else
+      %li.lists__title
+        = link_to "コメント", "/tweets/#{tweet.id}", class: "link"
