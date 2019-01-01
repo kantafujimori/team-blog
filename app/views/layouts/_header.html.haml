@@ -2,10 +2,11 @@
   .header__title
     = link_to "TEAM BLOG", root_path, class: "header__link"
   .search
-    = form_tag("/users/index", method: :get, class: 'search__form') do
+    = form_tag(users_path, method: :get, class: 'search__form') do
       %input.search__quely{ placeholder: '検索したいユーザー名を入力してください', type: 'keyword'}
     %button.search__button
       = fa_icon 'search', class: 'search__icon'
+    .search__result
   %ul.header__menue
     - if user_signed_in?
       %li.header__list
