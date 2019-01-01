@@ -2,7 +2,8 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: [:edit, :update, :show, :destroy]
 
   def index
-    @tweets = Tweet.order('id DESC').limit(10)
+    @tweets = Tweet.order('id DESC')
+    @tweets = @tweets.page(params[:page]).per(3)
   end
 
   def new
@@ -33,6 +34,7 @@ class TweetsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @tweet.comments.order('id DESC').includes(:user)
+    @comments = @comments.page(params[:page]).per(3)
   end
 
 

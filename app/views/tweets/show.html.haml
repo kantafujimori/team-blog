@@ -18,6 +18,7 @@
             = comment.text
           - if comment.image.present?
             = image_tag "#{comment.image}"
+      = paginate @comments
       = form_for [@tweet, @comment] do |f|
         = f.text_area :text, placeholder: "コメント", class: "comment__field"
         = f.label :image, class: "comment__image" do
