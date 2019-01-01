@@ -7,3 +7,4 @@
         = tweet.text
         = image_tag "#{tweet.image}"
       = render partial: 'shared/menu_bar', locals: { tweet: tweet }
+= paginate @tweets

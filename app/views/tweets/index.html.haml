@@ -8,3 +8,4 @@
         - if tweet.image.present?
           = image_tag "#{tweet.image}"
       = render 'shared/menu_bar', tweet: tweet
+  = paginate @tweets
