@@ -14,17 +14,18 @@
         - @comments.each do |comment|
           .comment__name
             = link_to "#{comment.user.name}", "/users/#{comment.user.id}", class: "link__name"
-            - if comment.user_id == current_user.id
-              = link_to "削除", "/tweets/#{comment.tweet_id}/comments/#{comment.id}", method: :delete, class: "comment__delete"
+            - if user_signed_in?
+              - if comment.user_id == current_user.id
+                = link_to "削除", "/tweets/#{comment.tweet_id}/comments/#{comment.id}", method: :delete, class: "comment__delete"
           .comment__text
             = comment.text
           - if comment.image.present?
             = image_tag "#{comment.image}"
       = paginate @comments
-      = form_for [@tweet, @comment] do |f|
-        = f.text_area :text, placeholder: "コメント", class: "comment__field"
-        = f.label :image, class: "comment__image" do
-          = fa_icon 'picture-o', class: 'icon'
-          = f.file_field :image, class: 'hidden'
-        = f.submit "投稿", class: "comment__send"
-
+      - if user_signed_in?
+        = form_for [@tweet, @comment] do |f|
+          = f.text_area :text, placeholder: "コメント", class: "comment__field"
+          = f.label :image, class: "comment__image" do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+          = f.submit "投稿", class: "comment__send"
