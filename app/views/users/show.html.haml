@@ -1,10 +1,11 @@
-.user__name
-  = @user.name
-- if @tweets
-  - @tweets.each do |tweet|
-    .user
-      .user__tweet
-        = tweet.text
-        = image_tag "#{tweet.image}"
-      = render partial: 'shared/menu_bar', locals: { tweet: tweet }
-= paginate @tweets
+.contents
+  .user__name
+    = @user.name
+  - if @tweets
+    - @tweets.each do |tweet|
+      .user
+        .user__tweet
+          = tweet.text
+          = image_tag "#{tweet.image}"
+        = render partial: 'shared/menu_bar', locals: { tweet: tweet }
+  = paginate @tweets
