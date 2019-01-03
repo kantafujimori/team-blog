@@ -30,4 +30,18 @@ RSpec.describe Tweet, type: :model do
       end
     end
   end
+
+  # describe '#destroy' do
+  #   it 'can destroy' do
+  #     tweet = build(:tweet)
+  #     expect{ tweet.destroy }.to change(Tweet, :count).by(-1)
+  #   end
+
+  #   it 'can not destoy'
+  #     tweet = build(:tweet)
+  #     user = build(:user)
+  #     login user
+  #     expect{ tweet.destroy }.not_to change(Tweet, :count)
+  #   end
+  # end
 end
