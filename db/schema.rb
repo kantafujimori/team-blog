@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181231184730) do
+ActiveRecord::Schema.define(version: 20190111053758) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "text",       limit: 65535, null: false
@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20181231184730) do
   create_table "tweets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "text",       limit: 65535, null: false
     t.string   "image"
+    t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "user_id"
+    t.index ["user_id"], name: "index_tweets_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,4 +47,5 @@ ActiveRecord::Schema.define(version: 20181231184730) do
 
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users"
+  add_foreign_key "tweets", "users"
 end
