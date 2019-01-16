@@ -69,3 +69,4 @@ gem 'mini_magick'
 gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'rails_12factor', group: :production
+gem 'sqlite3', group: :development
